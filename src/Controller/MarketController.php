@@ -35,7 +35,11 @@ class MarketController extends AbstractController
 
         $form = $this->createForm(MarketType::class, $market);
         $market->getName() ; 
-
+        $market->setBprice(0.00);
+        $market->setMcap(0.00);
+        $market->setRate(0.00);
+        $market->setSprice(0.00);
+        $market->setIDUser(0);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {

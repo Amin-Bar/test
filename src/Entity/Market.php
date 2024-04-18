@@ -4,6 +4,7 @@ namespace App\Entity;
 
 use App\Repository\MarketRepository;
 use Doctrine\ORM\Mapping as ORM;
+use Symfony\Component\Validator\Constraints as Assert;
 
 #[ORM\Entity(repositoryClass: MarketRepository::class)]
 class Market
@@ -14,9 +15,13 @@ class Market
     private ?int $IDmarket = null;
 
     #[ORM\Column(length: 25)]
+    #[Assert\NotBlank]
+    #[Assert\Length(max: 25)]
+    #[Assert\Regex(pattern: "/\A[A-Z]/", message: "The name must start with a capital letter.")]
     private ?string $name = null;
 
     #[ORM\Column(length: 255)]
+    #[Assert\Length(max: 255)]
     private ?string $rate = null;
 
     #[ORM\Column]
@@ -29,12 +34,16 @@ class Market
     private ?float $Mcap = null;
 
     #[ORM\Column(name: "typeM" , length: 50, nullable: true)]
+    #[Assert\Choice(choices: ['coin', 'stock'])]
     private ?string $typeM = null;
 
     #[ORM\Column(length: 260)]
+    #[Assert\NotBlank]
+    #[Assert\Length(max: 260)]
     private ?string $IMG_SRC = null;
 
     #[ORM\Column(nullable: true)]
+    #[Assert\GreaterThanOrEqual(0)]
     private ?int $ID_user = null;
 
   

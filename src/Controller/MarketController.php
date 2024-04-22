@@ -16,6 +16,7 @@ use Symfony\Component\Routing\Annotation\Route;
 class MarketController extends AbstractController
 {
     private int $is_admin=0; 
+
     #[Route('/', name: 'app_market_index', methods: ['GET'])]
     public function index(MarketRepository $marketRepository): Response
     {   if ($this->is_admin==1)
@@ -35,7 +36,11 @@ class MarketController extends AbstractController
 
         $form = $this->createForm(MarketType::class, $market);
         $market->getName() ; 
-
+        $market->setBprice(0.00);
+        $market->setMcap(0.00);
+        $market->setRate(0.00);
+        $market->setSprice(0.00);
+        $market->setIDUser(0);
         $form->handleRequest($request);
 
         if ($form->isSubmitted() && $form->isValid()) {
@@ -53,8 +58,12 @@ class MarketController extends AbstractController
 
     #[Route('/{id}', name: 'app_market_show', methods: ['GET'])]
     public function show(Market $market): Response
-    {
+    {   if ($this->is_admin==1)
         return $this->render('Back/market/show.html.twig', [
+            'market' => $market,
+        ]);
+        else 
+        return $this->render('Front/market/show.html.twig', [
             'market' => $market,
         ]);
     }
@@ -70,8 +79,13 @@ class MarketController extends AbstractController
 
             return $this->redirectToRoute('app_market_index', [], Response::HTTP_SEE_OTHER);
         }
-
+        if ($this->is_admin==1)
         return $this->renderForm('Back/market/edit.html.twig', [
+            'market' => $market,
+            'form' => $form,
+        ]);
+        else 
+        return $this->renderForm('Front/market/edit.html.twig', [
             'market' => $market,
             'form' => $form,
         ]);

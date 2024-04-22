@@ -1,4 +1,4 @@
-{% extends 'base.html.twig' %}
+{% extends 'admin.base.html.twig' %}
 
 {% block title %}Market{% endblock %}
 
@@ -51,4 +51,5 @@
     <a href="{{ path('app_market_edit', {'id': market.IDmarket}) }}">edit</a>
 
     {{ include('Back/market/_delete_form.html.twig') }}
+    
 {% endblock %}

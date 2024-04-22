@@ -26,7 +26,8 @@
     <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/vendors/css/cryptocoins/cryptocoins.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/pages/timeline.css')}}">
     <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/pages/dashboard-ico.css')}}">
-       <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css" rel="stylesheet">
+    <link rel="stylesheet" type="text/css" href="{{ asset('app-assets/css/file.css')}}">
 
     <!-- END Page Level CSS-->
     <!-- BEGIN Custom CSS-->
@@ -105,9 +106,10 @@
       <div class="content-wrapper">
         <div class="content-header row">
         </div>
-        <div class="content-body"><!-- ICO Token &  Distribution-->
+        <div class=""><!-- ICO Token &  Distribution-->
+        
     {% block body %}
-<div class="row match-height">
+    <div class="row match-height">
     <div class="col-xl-8 col-12">
         <div class="card card-transparent">
             <div class="card-header card-header-transparent py-20">
@@ -191,6 +193,7 @@
         </div>
     </div>
 </div>
+
 <!--/ Purchase token -->
 <!-- ICO Token balance & sale progress -->
 <div class="row">
@@ -455,7 +458,8 @@
       </div>
     </div>
     <!-- ////////////////////////////////////////////////////////////////////////////-->
-{% endblock %}
+
+    {% endblock %}
 {% block footer %}
     
 

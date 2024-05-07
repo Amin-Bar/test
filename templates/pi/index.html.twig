@@ -1,0 +1,934 @@
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TradeWave</title>
+
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text y=%22.9em%22 font-size=%2290%22&gt;🤑&lt;/text&gt;&lt;/svg&gt;"
+    />
+    <link rel="stylesheet" href="PiStyle.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Questrial&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              clifford: "#da373d",
+              gray: {
+                900: "#1A1A1D",
+              },
+              red: {
+                500: "#C3073F",
+                400: "#950740",
+              },
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header class="w-full bg-gray-900">
+      <div class="mx-auto flex items-center justify-between max-w-7xl h-16">
+        <div class="flex items-center space-x-2 p-4">
+          <button
+            onclick="toggleMenu()"
+            aria-label="Toggle Navigation Menu"
+            class="flex items-start p-1 text-gray-500 md:hidden"
+          >
+            <div class="flex w-5 h-5 relative justify-center flex-col">
+              <span
+                id="bar1"
+                class="w-full h-0.5 transition-all duration-300 rounded-full bg-gray-500"
+              ></span>
+              <span
+                id="bar2"
+                class="w-5/6 h-0.5 transition-all duration-300 rounded-full bg-gray-500"
+              ></span>
+              <span
+                id="bar3"
+                class="w-full h-0.5 transition-all duration-300 rounded-full bg-gray-500"
+              ></span>
+            </div>
+          </button>
+          <a
+            href="#_"
+            class="text-white font-extrabold uppercase flex items-center text-sm"
+          >
+            <svg
+              class="w-7 h-auto text-purple-600 mr-2"
+              viewBox="0 0 100 100"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <!-- Your SVG Path Here -->
+            </svg>
+            <span>Logo</span>
+          </a>
+        </div>
+        <nav
+          id="nav"
+          class="hidden md:flex items-center space-x-2 text-sm font-medium text-gray-300"
+        >
+          <a
+            href="#_"
+            class="px-5 py-3 transition bg-gray-900 hover:bg-gray-800"
+            >Home</a
+          >
+          <a
+            href="#_"
+            class="px-5 py-3 transition bg-gray-900 hover:bg-gray-800"
+            >Dashboard</a
+          >
+          <a
+            href="#_"
+            class="px-5 py-3 transition bg-gray-900 hover:bg-gray-800"
+            >News</a
+          >
+          <a
+            href="#_"
+            class="px-5 py-3 transition bg-gray-900 hover:bg-gray-800"
+            >P2P</a
+          >
+          <a
+            href="#_"
+            class="px-5 py-3 transition bg-gray-900 hover:bg-gray-800"
+            >Reclamation</a
+          >
+        </nav>
+        <div
+          class="flex items-center space-x-2 text-sm pr-4 font-medium text-gray-800"
+        >
+          <a
+            href="#_"
+            class="px-3 py-2 transition bg-gray-900 rounded hover:text-gray-200 hover:bg-gray-800"
+            >Login</a
+          >
+          <a
+            href="#_"
+            class="px-3 py-2 transition bg-red-600 rounded text-white hover:bg-red-400"
+            >Sign Up</a
+          >
+        </div>
+      </div>
+    </header>
+    <!-- END OF HEADER -->
+
+    <!-- OPENING -->
+    <section
+      class="relative block w-full py-6 leading-10 text-center text-indigo-900 bg-gray-900"
+      data-tails-scripts="//unpkg.com/alpinejs"
+    >
+      <div class="">
+        <h1
+          class="headline5 pc:headline2 mb-2 pc:mb-4 text-primaryText"
+          style="color: silver; font-weight: bold; font-size: 24px"
+        >
+          Trade USDT Easily - Buy and Sell Using Your Favorite Payment Methods
+        </h1>
+        <h2 class="body5 pc:body3 text-tertiaryText" style="color: silver">
+          Exchange TetherUS on Tradewave P2P. Find the best offers below to Buy
+          and Sell USDT
+        </h2>
+        <div class="flex w-full gap-4 justify-center mt-8">
+          <a class="min-w-[120px] tablet:min-w-[140px]" target="_blank">
+            <button
+              class="bn-button bn-button__primary data-size-regular w-full"
+              style="
+                font-family: 'Source Sans Pro', sans-serif;
+                font-weight: bold;
+                color: aliceblue;
+                background-color: black;
+              "
+              onmouseover="this.style.backgroundColor='lightslategrey'"
+              onmouseout="this.style.backgroundColor='black'"
+            >
+              Buy
+            </button>
+          </a>
+          <a class="min-w-[120px] tablet:min-w-[140px]" target="_blank">
+            <button
+              class="bn-button bn-button__secondary data-size-regular w-full"
+              style="
+                font-family: 'Source Sans Pro', sans-serif;
+                font-weight: bold;
+                color: aliceblue;
+                background-color: black;
+              "
+              onmouseover="this.style.backgroundColor='lightslategrey'"
+              onmouseout="this.style.backgroundColor='black'"
+            >
+              Sell
+            </button>
+          </a>
+        </div>
+      </div>
+    </section>
+    <!-- END OF OPENING -->
+
+    <!-- MAIN CONTENT -->
+    <section class="w-full py-6 leading-10 text-white bg-gray-900">
+      <div class="w-[90%] mx-auto">
+        <div>
+          <input
+            type="number"
+            class="h-10 px-4 py-2 text-black bg-gray-200 rounded-lg"
+            placeholder="Enter Amount In USDT $"
+          />
+          <select class="h-10 mx-3 px-4 py-2 text-black bg-gray-200 rounded-lg">
+            <option value="all-payments" selected>All Payments</option>
+            <option value="flouci">Flouci</option>
+            <option value="bank-transfer">Bank Transfer</option>
+            <option value="postepay">PostePay</option>
+          </select>
+        </div>
+        <table class="w-full mt-8 mb-5" style="border-bottom: 1px solid white">
+          <thead>
+            <tr style="border-bottom: 1px solid white">
+              <th class="px-4 py-2 text-left">Advertisers</th>
+              <th class="px-4 py-2 text-left">Price</th>
+              <th class="px-4 py-2 text-left">Available/Limit</th>
+              <th class="px-4 py-2 text-left">Payment</th>
+              <th class="px-4 py-2 text-right">Trade</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Add table rows here -->
+            <tr style="border-bottom: 0.5px solid white">
+              <td class="px-4 py-2">thetrader710</td>
+              <td class="px-4 py-2">3.43 TND</td>
+              <td class="px-4 py-2">509.28 USDT</td>
+              <td class="px-4 py-2">PayPal</td>
+              <td class="px-4 py-2 text-right">
+                <button
+                  class="bn-button bn-button__primary data-size-regular px-4 bg-red-600 rounded text-white hover:bg-red-400"
+                >
+                  Buy USDT
+                </button>
+              </td>
+            </tr>
+            <tr style="border-bottom: 0.5px solid white">
+              <td class="px-4 py-2">thetrader710</td>
+              <td class="px-4 py-2">3.43 TND</td>
+              <td class="px-4 py-2">509.28 USDT</td>
+              <td class="px-4 py-2">PayPal</td>
+              <td class="px-4 py-2 text-right">
+                <button
+                  class="bn-button bn-button__primary data-size-regular px-4 bg-red-600 rounded text-white hover:bg-red-400"
+                >
+                  Buy USDT
+                </button>
+              </td>
+            </tr>
+            <tr style="border-bottom: 0.5px solid white">
+              <td class="px-4 py-2">thetrader710</td>
+              <td class="px-4 py-2">3.43 TND</td>
+              <td class="px-4 py-2">509.28 USDT</td>
+              <td class="px-4 py-2">PayPal</td>
+              <td class="px-4 py-2 text-right">
+                <button
+                  class="bn-button bn-button__primary data-size-regular px-4 bg-red-600 rounded text-white hover:bg-red-400"
+                >
+                  Buy USDT
+                </button>
+              </td>
+            </tr>
+            <tr style="border-bottom: 0.5px solid white">
+              <td class="px-4 py-2">thetrader710</td>
+              <td class="px-4 py-2">3.43 TND</td>
+              <td class="px-4 py-2">509.28 USDT</td>
+              <td class="px-4 py-2">PayPal</td>
+              <td class="px-4 py-2 text-right">
+                <button
+                  class="bn-button bn-button__primary data-size-regular px-4 bg-red-600 rounded text-white hover:bg-red-400"
+                >
+                  Buy USDT
+                </button>
+              </td>
+            </tr>
+            <tr style="border-bottom: 0.5px solid white">
+              <td class="px-4 py-2">thetrader710</td>
+              <td class="px-4 py-2">3.43 TND</td>
+              <td class="px-4 py-2">509.28 USDT</td>
+              <td class="px-4 py-2">PayPal</td>
+              <td class="px-4 py-2 text-right">
+                <button
+                  class="bn-button bn-button__primary data-size-regular px-4 bg-red-600 rounded text-white hover:bg-red-400"
+                >
+                  Buy USDT
+                </button>
+              </td>
+            </tr>
+            <tr style="border-bottom: 0.5px solid white">
+              <td class="px-4 py-2">thetrader710</td>
+              <td class="px-4 py-2">3.43 TND</td>
+              <td class="px-4 py-2">509.28 USDT</td>
+              <td class="px-4 py-2">PayPal</td>
+              <td class="px-4 py-2 text-right">
+                <button
+                  class="bn-button bn-button__primary data-size-regular px-4 bg-red-600 rounded text-white hover:bg-red-400"
+                >
+                  Buy USDT
+                </button>
+              </td>
+            </tr>
+            <tr style="border-bottom: 0.5px solid white">
+              <td class="px-4 py-2">thetrader710</td>
+              <td class="px-4 py-2">3.43 TND</td>
+              <td class="px-4 py-2">509.28 USDT</td>
+              <td class="px-4 py-2">PayPal</td>
+              <td class="px-4 py-2 text-right">
+                <button
+                  class="bn-button bn-button__primary data-size-regular px-4 bg-red-600 rounded text-white hover:bg-red-400"
+                >
+                  Buy USDT
+                </button>
+              </td>
+            </tr>
+            <tr style="border-bottom: 0.5px solid white">
+              <td class="px-4 py-2">thetrader710</td>
+              <td class="px-4 py-2">3.43 TND</td>
+              <td class="px-4 py-2">509.28 USDT</td>
+              <td class="px-4 py-2">PayPal</td>
+              <td class="px-4 py-2 text-right">
+                <button
+                  class="bn-button bn-button__primary data-size-regular px-4 bg-red-600 rounded text-white hover:bg-red-400"
+                >
+                  Buy USDT
+                </button>
+              </td>
+            </tr>
+            <tr style="border-bottom: 0.5px solid white">
+              <td class="px-4 py-2">thetrader710</td>
+              <td class="px-4 py-2">3.43 TND</td>
+              <td class="px-4 py-2">509.28 USDT</td>
+              <td class="px-4 py-2">PayPal</td>
+              <td class="px-4 py-2 text-right">
+                <button
+                  class="bn-button bn-button__primary data-size-regular px-4 bg-red-600 rounded text-white hover:bg-red-400"
+                >
+                  Buy USDT
+                </button>
+              </td>
+            </tr>
+            <tr style="border-bottom: 0.5px solid white">
+              <td class="px-4 py-2">thetrader710</td>
+              <td class="px-4 py-2">3.43 TND</td>
+              <td class="px-4 py-2">509.28 USDT</td>
+              <td class="px-4 py-2">PayPal</td>
+              <td class="px-4 py-2 text-right">
+                <button
+                  class="bn-button bn-button__primary data-size-regular px-4 bg-red-600 rounded text-white hover:bg-red-400"
+                >
+                  Buy USDT
+                </button>
+              </td>
+            </tr>
+            <tr style="border-bottom: 0.5px solid white">
+              <td class="px-4 py-2">thetrader710</td>
+              <td class="px-4 py-2">3.43 TND</td>
+              <td class="px-4 py-2">509.28 USDT</td>
+              <td class="px-4 py-2">PayPal</td>
+              <td class="px-4 py-2 text-right">
+                <button
+                  class="bn-button bn-button__primary data-size-regular px-4 bg-red-600 rounded text-white hover:bg-red-400"
+                >
+                  Buy USDT
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="pagination" style="text-align: center">
+          <button href="#" class="pagination-link">1</button>
+          <button href="#" class="pagination-link">2</button>
+          <button href="#" class="pagination-link">3</button>
+          <button href="#" class="pagination-link">4</button>
+          <button href="#" class="pagination-link">5</button>
+        </div>
+      </div>
+    </section>
+    <!-- END OF MAIN CONTENT -->
+
+    <!-- HOW IT WORKS -->
+    <section class="w-full py-6 leading-10 text-white bg-gray-900">
+      <div class="w-[90%] mx-auto">
+        <h4 class="text-4xl">How It Works</h4>
+        <div class="grid grid-cols-3 gap-4 my-5">
+            <div class="border p-4 rounded-lg">
+                <h4 class="text-xl mb-2">1. Place an Order</h4>
+                <p class="text-sm">
+                    Once you place a P2P order, the crypto asset will be escrowed by Binance P2P.
+                </p>
+            </div>
+            <div class="border p-4 rounded-lg">
+                <h4 class="text-xl mb-2">2. Pay the Seller</h4>
+                <p class="text-sm">
+                    Send money to the seller via the suggested payment methods. Complete the fiat transaction and click "Transferred, notify seller" on Binance P2P.
+                </p>
+            </div>
+            <div class="border p-4 rounded-lg">
+                <h4 class="text-xl mb-2">3. Receive Crypto</h4>
+                <p class="text-sm">
+                    Once the seller confirms receipt of money, the escrowed crypto will be released to you.
+                </p>
+            </div>
+        </div>
+      </div>
+    </section>
+    <!-- END OF HOW IT WORKS -->
+
+    <!-- FOOTER -->
+    <footer>
+      <section
+        class="h-auto md:py-32 py-20 2xl:px-0 px-10 bg-gray-900 text-white"
+        data-tails-google-fonts="Questrial"
+        contenteditable="true"
+      >
+        <div
+          class="max-w-7xl mx-auto flex md:flex-row md:space-y-0 space-y-20 flex-col flex-wrap xl:space-x-5 xl:flex-nowrap items-start justify-between"
+        >
+          <div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 space-y-5 pr-10">
+            <h4 class="text-4xl">CodeDelivery.</h4>
+            <p class="text-gray-500">
+              Baked with awesome recipes to help you build apps quicker and more
+              efficiently.
+            </p>
+            <a href="mailto:hello@codedelivery.dev" class="block underline"
+              >hello@codedelivery.dev</a
+            >
+          </div>
+          <div class="w-full md:w-1/4 pt-2">
+            <h4 class="text-2xl mb-5">aya a5taro maaya</h4>
+            <ul class="relative text-gray-500 space-y-2">
+              <li>
+                <a href="#_" class="hover:underline">Continuous Integration</a>
+              </li>
+              <li>
+                <a href="#_" class="hover:underline">Continuous Delivery</a>
+              </li>
+              <li><a href="#_" class="hover:underline">Recipes</a></li>
+              <li><a href="#_" class="hover:underline">Ingredients</a></li>
+              <li><a href="#_" class="hover:underline">Open Source</a></li>
+            </ul>
+          </div>
+          <div class="w-full md:w-1/4 lg:w-1/4 pt-2">
+            <h4 class="text-2xl mb-5">About Us</h4>
+            <ul class="relative text-gray-500 space-y-2">
+              <li><a href="#_" class="hover:underline">About Us</a></li>
+              <li><a href="#_" class="hover:underline">Contact</a></li>
+              <li><a href="#_" class="hover:underline">Team</a></li>
+              <li>
+                <a href="#_" class="hover:underline">Plans &amp; Pricing</a>
+              </li>
+              <li><a href="#_" class="hover:underline">News</a></li>
+            </ul>
+          </div>
+          <div class="w-full md:w-2/3 lg:w-1/3 pt-2">
+            <h4 class="text-2xl mb-5">Our Mission</h4>
+            <p class="text-gray-500">
+              Our mission is simple, we want to provide the simplest and best
+              CI/ CD service. And we want to have fun doing it!
+            </p>
+          </div>
+        </div>
+      </section>
+    </footer>
+    <!-- END OF FOOTER -->
+
+    <script>
+      function toggleMenu() {
+        document.getElementById("nav").classList.toggle("hidden");
+        document.getElementById("bar1").classList.toggle("rotate-45");
+        document.getElementById("bar1").classList.toggle("translate-y-full");
+        document.getElementById("bar1").classList.toggle("mt-0.5");
+        document.getElementById("bar2").classList.toggle("opacity-0");
+        document.getElementById("bar3").classList.toggle("-rotate-45");
+        document.getElementById("bar3").classList.toggle("absolute");
+        document.getElementById("bar3").classList.toggle("-translate-y-0.5");
+      }
+    </script>
+    <script src="//unpkg.com/alpinejs" defer></script>
+  </body>
+</html>
+
+Pi.html
+Affichage de Pi.html en cours...
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <title>TradeWave</title>
+
+    <link
+      rel="shortcut icon"
+      type="image/x-icon"
+      href="data:image/svg+xml,&lt;svg xmlns=%22http://www.w3.org/2000/svg%22 viewBox=%220 0 100 100%22&gt;&lt;text y=%22.9em%22 font-size=%2290%22&gt;🤑&lt;/text&gt;&lt;/svg&gt;"
+    />
+    <link rel="stylesheet" href="PiStyle.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Questrial&display=swap"
+      rel="stylesheet"
+    />
+    <script src="https://cdn.tailwindcss.com"></script>
+
+    <script>
+      tailwind.config = {
+        theme: {
+          extend: {
+            colors: {
+              clifford: "#da373d",
+              gray: {
+                900: "#1A1A1D",
+              },
+              red: {
+                500: "#C3073F",
+                400: "#950740",
+              },
+            },
+          },
+        },
+      };
+    </script>
+  </head>
+  <body>
+    <!-- HEADER -->
+    <header class="w-full bg-gray-900">
+      <div class="mx-auto flex items-center justify-between max-w-7xl h-16">
+        <div class="flex items-center space-x-2 p-4">
+          <button
+            onclick="toggleMenu()"
+            aria-label="Toggle Navigation Menu"
+            class="flex items-start p-1 text-gray-500 md:hidden"
+          >
+            <div class="flex w-5 h-5 relative justify-center flex-col">
+              <span
+                id="bar1"
+                class="w-full h-0.5 transition-all duration-300 rounded-full bg-gray-500"
+              ></span>
+              <span
+                id="bar2"
+                class="w-5/6 h-0.5 transition-all duration-300 rounded-full bg-gray-500"
+              ></span>
+              <span
+                id="bar3"
+                class="w-full h-0.5 transition-all duration-300 rounded-full bg-gray-500"
+              ></span>
+            </div>
+          </button>
+          <a
+            href="#_"
+            class="text-white font-extrabold uppercase flex items-center text-sm"
+          >
+            <svg
+              class="w-7 h-auto text-purple-600 mr-2"
+              viewBox="0 0 100 100"
+              xmlns="http://www.w3.org/2000/svg"
+              aria-hidden="true"
+            >
+              <!-- Your SVG Path Here -->
+            </svg>
+            <span>Logo</span>
+          </a>
+        </div>
+        <nav
+          id="nav"
+          class="hidden md:flex items-center space-x-2 text-sm font-medium text-gray-300"
+        >
+          <a
+            href="#_"
+            class="px-5 py-3 transition bg-gray-900 hover:bg-gray-800"
+            >Home</a
+          >
+          <a
+            href="#_"
+            class="px-5 py-3 transition bg-gray-900 hover:bg-gray-800"
+            >Dashboard</a
+          >
+          <a
+            href="#_"
+            class="px-5 py-3 transition bg-gray-900 hover:bg-gray-800"
+            >News</a
+          >
+          <a
+            href="#_"
+            class="px-5 py-3 transition bg-gray-900 hover:bg-gray-800"
+            >P2P</a
+          >
+          <a
+            href="#_"
+            class="px-5 py-3 transition bg-gray-900 hover:bg-gray-800"
+            >Reclamation</a
+          >
+        </nav>
+        <div
+          class="flex items-center space-x-2 text-sm pr-4 font-medium text-gray-800"
+        >
+          <a
+            href="#_"
+            class="px-3 py-2 transition bg-gray-900 rounded hover:text-gray-200 hover:bg-gray-800"
+            >Login</a
+          >
+          <a
+            href="#_"
+            class="px-3 py-2 transition bg-red-600 rounded text-white hover:bg-red-400"
+            >Sign Up</a
+          >
+        </div>
+      </div>
+    </header>
+    <!-- END OF HEADER -->
+
+    <!-- OPENING -->
+    <section
+      class="relative block w-full py-6 leading-10 text-center text-indigo-900 bg-gray-900"
+      data-tails-scripts="//unpkg.com/alpinejs"
+    >
+      <div class="">
+        <h1
+          class="headline5 pc:headline2 mb-2 pc:mb-4 text-primaryText"
+          style="color: silver; font-weight: bold; font-size: 24px"
+        >
+          Trade USDT Easily - Buy and Sell Using Your Favorite Payment Methods
+        </h1>
+        <h2 class="body5 pc:body3 text-tertiaryText" style="color: silver">
+          Exchange TetherUS on Tradewave P2P. Find the best offers below to Buy
+          and Sell USDT
+        </h2>
+        <div class="flex w-full gap-4 justify-center mt-8">
+          <a class="min-w-[120px] tablet:min-w-[140px]" target="_blank">
+            <button
+              class="bn-button bn-button__primary data-size-regular w-full"
+              style="
+                font-family: 'Source Sans Pro', sans-serif;
+                font-weight: bold;
+                color: aliceblue;
+                background-color: black;
+              "
+              onmouseover="this.style.backgroundColor='lightslategrey'"
+              onmouseout="this.style.backgroundColor='black'"
+            >
+              Buy
+            </button>
+          </a>
+          <a class="min-w-[120px] tablet:min-w-[140px]" target="_blank">
+            <button
+              class="bn-button bn-button__secondary data-size-regular w-full"
+              style="
+                font-family: 'Source Sans Pro', sans-serif;
+                font-weight: bold;
+                color: aliceblue;
+                background-color: black;
+              "
+              onmouseover="this.style.backgroundColor='lightslategrey'"
+              onmouseout="this.style.backgroundColor='black'"
+            >
+              Sell
+            </button>
+          </a>
+        </div>
+      </div>
+    </section>
+    <!-- END OF OPENING -->
+
+    <!-- MAIN CONTENT -->
+    <section class="w-full py-6 leading-10 text-white bg-gray-900">
+      <div class="w-[90%] mx-auto">
+        <div>
+          <input
+            type="number"
+            class="h-10 px-4 py-2 text-black bg-gray-200 rounded-lg"
+            placeholder="Enter Amount In USDT $"
+          />
+          <select class="h-10 mx-3 px-4 py-2 text-black bg-gray-200 rounded-lg">
+            <option value="all-payments" selected>All Payments</option>
+            <option value="flouci">Flouci</option>
+            <option value="bank-transfer">Bank Transfer</option>
+            <option value="postepay">PostePay</option>
+          </select>
+        </div>
+        <table class="w-full mt-8 mb-5" style="border-bottom: 1px solid white">
+          <thead>
+            <tr style="border-bottom: 1px solid white">
+              <th class="px-4 py-2 text-left">Advertisers</th>
+              <th class="px-4 py-2 text-left">Price</th>
+              <th class="px-4 py-2 text-left">Available/Limit</th>
+              <th class="px-4 py-2 text-left">Payment</th>
+              <th class="px-4 py-2 text-right">Trade</th>
+            </tr>
+          </thead>
+          <tbody>
+            <!-- Add table rows here -->
+            <tr style="border-bottom: 0.5px solid white">
+              <td class="px-4 py-2">thetrader710</td>
+              <td class="px-4 py-2">3.43 TND</td>
+              <td class="px-4 py-2">509.28 USDT</td>
+              <td class="px-4 py-2">PayPal</td>
+              <td class="px-4 py-2 text-right">
+                <button
+                  class="bn-button bn-button__primary data-size-regular px-4 bg-red-600 rounded text-white hover:bg-red-400"
+                >
+                  Buy USDT
+                </button>
+              </td>
+            </tr>
+            <tr style="border-bottom: 0.5px solid white">
+              <td class="px-4 py-2">thetrader710</td>
+              <td class="px-4 py-2">3.43 TND</td>
+              <td class="px-4 py-2">509.28 USDT</td>
+              <td class="px-4 py-2">PayPal</td>
+              <td class="px-4 py-2 text-right">
+                <button
+                  class="bn-button bn-button__primary data-size-regular px-4 bg-red-600 rounded text-white hover:bg-red-400"
+                >
+                  Buy USDT
+                </button>
+              </td>
+            </tr>
+            <tr style="border-bottom: 0.5px solid white">
+              <td class="px-4 py-2">thetrader710</td>
+              <td class="px-4 py-2">3.43 TND</td>
+              <td class="px-4 py-2">509.28 USDT</td>
+              <td class="px-4 py-2">PayPal</td>
+              <td class="px-4 py-2 text-right">
+                <button
+                  class="bn-button bn-button__primary data-size-regular px-4 bg-red-600 rounded text-white hover:bg-red-400"
+                >
+                  Buy USDT
+                </button>
+              </td>
+            </tr>
+            <tr style="border-bottom: 0.5px solid white">
+              <td class="px-4 py-2">thetrader710</td>
+              <td class="px-4 py-2">3.43 TND</td>
+              <td class="px-4 py-2">509.28 USDT</td>
+              <td class="px-4 py-2">PayPal</td>
+              <td class="px-4 py-2 text-right">
+                <button
+                  class="bn-button bn-button__primary data-size-regular px-4 bg-red-600 rounded text-white hover:bg-red-400"
+                >
+                  Buy USDT
+                </button>
+              </td>
+            </tr>
+            <tr style="border-bottom: 0.5px solid white">
+              <td class="px-4 py-2">thetrader710</td>
+              <td class="px-4 py-2">3.43 TND</td>
+              <td class="px-4 py-2">509.28 USDT</td>
+              <td class="px-4 py-2">PayPal</td>
+              <td class="px-4 py-2 text-right">
+                <button
+                  class="bn-button bn-button__primary data-size-regular px-4 bg-red-600 rounded text-white hover:bg-red-400"
+                >
+                  Buy USDT
+                </button>
+              </td>
+            </tr>
+            <tr style="border-bottom: 0.5px solid white">
+              <td class="px-4 py-2">thetrader710</td>
+              <td class="px-4 py-2">3.43 TND</td>
+              <td class="px-4 py-2">509.28 USDT</td>
+              <td class="px-4 py-2">PayPal</td>
+              <td class="px-4 py-2 text-right">
+                <button
+                  class="bn-button bn-button__primary data-size-regular px-4 bg-red-600 rounded text-white hover:bg-red-400"
+                >
+                  Buy USDT
+                </button>
+              </td>
+            </tr>
+            <tr style="border-bottom: 0.5px solid white">
+              <td class="px-4 py-2">thetrader710</td>
+              <td class="px-4 py-2">3.43 TND</td>
+              <td class="px-4 py-2">509.28 USDT</td>
+              <td class="px-4 py-2">PayPal</td>
+              <td class="px-4 py-2 text-right">
+                <button
+                  class="bn-button bn-button__primary data-size-regular px-4 bg-red-600 rounded text-white hover:bg-red-400"
+                >
+                  Buy USDT
+                </button>
+              </td>
+            </tr>
+            <tr style="border-bottom: 0.5px solid white">
+              <td class="px-4 py-2">thetrader710</td>
+              <td class="px-4 py-2">3.43 TND</td>
+              <td class="px-4 py-2">509.28 USDT</td>
+              <td class="px-4 py-2">PayPal</td>
+              <td class="px-4 py-2 text-right">
+                <button
+                  class="bn-button bn-button__primary data-size-regular px-4 bg-red-600 rounded text-white hover:bg-red-400"
+                >
+                  Buy USDT
+                </button>
+              </td>
+            </tr>
+            <tr style="border-bottom: 0.5px solid white">
+              <td class="px-4 py-2">thetrader710</td>
+              <td class="px-4 py-2">3.43 TND</td>
+              <td class="px-4 py-2">509.28 USDT</td>
+              <td class="px-4 py-2">PayPal</td>
+              <td class="px-4 py-2 text-right">
+                <button
+                  class="bn-button bn-button__primary data-size-regular px-4 bg-red-600 rounded text-white hover:bg-red-400"
+                >
+                  Buy USDT
+                </button>
+              </td>
+            </tr>
+            <tr style="border-bottom: 0.5px solid white">
+              <td class="px-4 py-2">thetrader710</td>
+              <td class="px-4 py-2">3.43 TND</td>
+              <td class="px-4 py-2">509.28 USDT</td>
+              <td class="px-4 py-2">PayPal</td>
+              <td class="px-4 py-2 text-right">
+                <button
+                  class="bn-button bn-button__primary data-size-regular px-4 bg-red-600 rounded text-white hover:bg-red-400"
+                >
+                  Buy USDT
+                </button>
+              </td>
+            </tr>
+            <tr style="border-bottom: 0.5px solid white">
+              <td class="px-4 py-2">thetrader710</td>
+              <td class="px-4 py-2">3.43 TND</td>
+              <td class="px-4 py-2">509.28 USDT</td>
+              <td class="px-4 py-2">PayPal</td>
+              <td class="px-4 py-2 text-right">
+                <button
+                  class="bn-button bn-button__primary data-size-regular px-4 bg-red-600 rounded text-white hover:bg-red-400"
+                >
+                  Buy USDT
+                </button>
+              </td>
+            </tr>
+          </tbody>
+        </table>
+        <div class="pagination" style="text-align: center">
+          <button href="#" class="pagination-link">1</button>
+          <button href="#" class="pagination-link">2</button>
+          <button href="#" class="pagination-link">3</button>
+          <button href="#" class="pagination-link">4</button>
+          <button href="#" class="pagination-link">5</button>
+        </div>
+      </div>
+    </section>
+    <!-- END OF MAIN CONTENT -->
+
+    <!-- HOW IT WORKS -->
+    <section class="w-full py-6 leading-10 text-white bg-gray-900">
+      <div class="w-[90%] mx-auto">
+        <h4 class="text-4xl">How It Works</h4>
+        <div class="grid grid-cols-3 gap-4 my-5">
+            <div class="border p-4 rounded-lg">
+                <h4 class="text-xl mb-2">1. Place an Order</h4>
+                <p class="text-sm">
+                    Once you place a P2P order, the crypto asset will be escrowed by Binance P2P.
+                </p>
+            </div>
+            <div class="border p-4 rounded-lg">
+                <h4 class="text-xl mb-2">2. Pay the Seller</h4>
+                <p class="text-sm">
+                    Send money to the seller via the suggested payment methods. Complete the fiat transaction and click "Transferred, notify seller" on Binance P2P.
+                </p>
+            </div>
+            <div class="border p-4 rounded-lg">
+                <h4 class="text-xl mb-2">3. Receive Crypto</h4>
+                <p class="text-sm">
+                    Once the seller confirms receipt of money, the escrowed crypto will be released to you.
+                </p>
+            </div>
+        </div>
+      </div>
+    </section>
+    <!-- END OF HOW IT WORKS -->
+
+    <!-- FOOTER -->
+    <footer>
+      <section
+        class="h-auto md:py-32 py-20 2xl:px-0 px-10 bg-gray-900 text-white"
+        data-tails-google-fonts="Questrial"
+        contenteditable="true"
+      >
+        <div
+          class="max-w-7xl mx-auto flex md:flex-row md:space-y-0 space-y-20 flex-col flex-wrap xl:space-x-5 xl:flex-nowrap items-start justify-between"
+        >
+          <div class="w-full md:w-1/2 lg:w-1/3 flex-shrink-0 space-y-5 pr-10">
+            <h4 class="text-4xl">CodeDelivery.</h4>
+            <p class="text-gray-500">
+              Baked with awesome recipes to help you build apps quicker and more
+              efficiently.
+            </p>
+            <a href="mailto:hello@codedelivery.dev" class="block underline"
+              >hello@codedelivery.dev</a
+            >
+          </div>
+          <div class="w-full md:w-1/4 pt-2">
+            <h4 class="text-2xl mb-5">aya a5taro maaya</h4>
+            <ul class="relative text-gray-500 space-y-2">
+              <li>
+                <a href="#_" class="hover:underline">Continuous Integration</a>
+              </li>
+              <li>
+                <a href="#_" class="hover:underline">Continuous Delivery</a>
+              </li>
+              <li><a href="#_" class="hover:underline">Recipes</a></li>
+              <li><a href="#_" class="hover:underline">Ingredients</a></li>
+              <li><a href="#_" class="hover:underline">Open Source</a></li>
+            </ul>
+          </div>
+          <div class="w-full md:w-1/4 lg:w-1/4 pt-2">
+            <h4 class="text-2xl mb-5">About Us</h4>
+            <ul class="relative text-gray-500 space-y-2">
+              <li><a href="#_" class="hover:underline">About Us</a></li>
+              <li><a href="#_" class="hover:underline">Contact</a></li>
+              <li><a href="#_" class="hover:underline">Team</a></li>
+              <li>
+                <a href="#_" class="hover:underline">Plans &amp; Pricing</a>
+              </li>
+              <li><a href="#_" class="hover:underline">News</a></li>
+            </ul>
+          </div>
+          <div class="w-full md:w-2/3 lg:w-1/3 pt-2">
+            <h4 class="text-2xl mb-5">Our Mission</h4>
+            <p class="text-gray-500">
+              Our mission is simple, we want to provide the simplest and best
+              CI/ CD service. And we want to have fun doing it!
+            </p>
+          </div>
+        </div>
+      </section>
+    </footer>
+    <!-- END OF FOOTER -->
+
+    <script>
+      function toggleMenu() {
+        document.getElementById("nav").classList.toggle("hidden");
+        document.getElementById("bar1").classList.toggle("rotate-45");
+        document.getElementById("bar1").classList.toggle("translate-y-full");
+        document.getElementById("bar1").classList.toggle("mt-0.5");
+        document.getElementById("bar2").classList.toggle("opacity-0");
+        document.getElementById("bar3").classList.toggle("-rotate-45");
+        document.getElementById("bar3").classList.toggle("absolute");
+        document.getElementById("bar3").classList.toggle("-translate-y-0.5");
+      }
+    </script>
+    <script src="//unpkg.com/alpinejs" defer></script>
+  </body>
+</html>

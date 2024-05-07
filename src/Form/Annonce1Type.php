@@ -12,11 +12,10 @@ class Annonce1Type extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options): void
     {
         $builder
-            ->add('user')
+            ->add('username')
             ->add('montant')
             ->add('prix')
             ->add('datetime')
-            ->add('username')
             ->add('status')
         ;
     }

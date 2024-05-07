@@ -1,11 +1,72 @@
-{% extends 'AnnonceBase.html.twig' %}
+{% extends 'base.html.twig' %}
 
-{% block title %}New Annonce{% endblock %}
+{% block NewAnnonce %}
+<link rel="stylesheet" href="{{ asset('/assets/css/NewAnnouncement') }}">
+<div style="margin-top:100px;width:45%;margin-left:20px">
+    <div class="new-announcement-specific">
+        <!-- Modal for flash messages -->
+        <div class="modal fade" id="flashMessageModal" tabindex="-1" aria-labelledby="flashMessageModalLabel" aria-hidden="true">
+            <div class="modal-dialog">
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <h5 class="modal-title" id="flashMessageModalLabel">Notification</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                    </div>
+                    <div class="modal-body">
+                        {% for message_type, messages in app.flashes %}
+                            {% for message in messages %}
+                                <div class="alert alert-{{ message_type }}">
+                                    {{ message }}
+                                </div>
+                            {% endfor %}
+                        {% endfor %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- End of Modal -->
+    </div>
+    <form class="announcement-form" action="{{ path('app_annonce_submit') }}" method="post">
+        <div class="form-group" style="margin-top:10px">
+            <label for="username">Your Name</label>
+            <input type="text" class="form-control" id="username" name="username" required>
+        </div>
+        <div class="form-group">
+            <label for="montant">Amount of USDT:</label>
+            <input type="number" class="form-control" id="montant" name="montant" required>
+        </div>
+        <div class="form-group" style="margin-top:10px">
+            <label for="price">Price in TND:</label>
+            <input type="number" class="form-control" id="price" name="prix" required>
+        </div>
+        <div class="form-group" style="margin-top:10px">
+            <label for="paymentMethod">Payment Method:</label>
+            <select class="form-control" id="paymentMethod" name="paymentMethod">
+                <option value="bank_transfer">Bank Transfer</option>
+                <option value="cash">Cash</option>
+                <option value="other">Other</option>
+            </select>
+        </div>
+        <div class="form-group" style="margin-top: 50px;margin-left:20px">
+            <div class="button-group">
+                <button type="submit" class="btn btn-primary">Submit</button>
+                <a href="{{ path('app_annonce_index') }}" class="btn btn-primary">Back to Announcement</a>
+            </div>
+        </div>
+    </form>
+</div>
 
-{% block body %}
-    <h1>Create new Annonce</h1>
-
-    {{ include('annonce/_form.html.twig') }}
-
-    <a href="{{ path('app_annonce_index') }}">back to list</a>
+<!-- Bootstrap and jQuery -->
+<script src="https://code.jquery.com/jquery-3.5.1.slim.min.js"></script>
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.1.3/dist/js/bootstrap.bundle.min.js"></script>
+<script>
+$(document).ready(function() {
+    // Show the modal if there are any messages
+    if ($('.modal-body .alert').length > 0) {
+        $('#flashMessageModal').modal('show');
+    }
+});
+</script>
 {% endblock %}

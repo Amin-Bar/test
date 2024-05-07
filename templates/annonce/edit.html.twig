@@ -1,13 +1,43 @@
-{% extends 'AnnonceBase.html.twig' %}
+{% extends 'base.html.twig' %}
 
-{% block title %}Edit Annonce{% endblock %}
+{% block title %}Edit Announcement{% endblock %}
 
-{% block body %}
-    <h1>Edit Annonce</h1>
-
-    {{ include('annonce/_form.html.twig', {'button_label': 'Update'}) }}
-
-    <a href="{{ path('app_annonce_index') }}">back to list</a>
-
-    {{ include('annonce/_delete_form.html.twig') }}
+{% block NewAnnonce %}
+<div class="container mt-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8">
+            <div class="card">
+                <div class="card-header">
+                    <h2>Edit Announcement</h2>
+                </div>
+                <div class="card-body">
+                    <form action="{{ path('app_annonce_edit', {'id': annonce.id}) }}" method="post">
+                        <div class="form-group mb-3">
+                            <label for="username" class="form-label">Your Name:</label>
+                            <input type="text" class="form-control" id="username" name="username" value="{{ annonce.username }}" required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="montant" class="form-label">Amount of USDT:</label>
+                            <input type="number" class="form-control" id="montant" name="montant" value="{{ annonce.montant }}" required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="price" class="form-label">Price in TND:</label>
+                            <input type="number" class="form-control" id="price" name="prix" value="{{ annonce.prix }}" required>
+                        </div>
+                        <div class="form-group mb-3">
+                            <label for="paymentMethod" class="form-label">Payment Method:</label>
+                            <select class="form-control" id="paymentMethod" name="paymentMethod">
+                                <option value="bank_transfer" {% if annonce.paymentMethod == 'bank_transfer' %}selected{% endif %}>Bank Transfer</option>
+                                <option value="cash" {% if annonce.paymentMethod == 'cash' %}selected{% endif %}>Cash</option>
+                                <option value="other" {% if annonce.paymentMethod == 'other' %}selected{% endif %}>Other</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Update</button>
+                    </form>
+                </div>
+            </div>
+            <a href="{{ path('app_annonce_index') }}" class="btn btn-link">Back to list</a>
+        </div>
+    </div>
+</div>
 {% endblock %}

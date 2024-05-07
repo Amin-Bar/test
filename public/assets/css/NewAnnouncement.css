@@ -1,0 +1,75 @@
+.new-announcement-specific .new-announcement-container {
+    width: 50%; /* Adjust this value based on your design preference */
+    padding: 2rem;
+    background-color: #ffffff;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0,0,0,0.5);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+/* NewAnnouncement.css */
+.form-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    height: 100vh; /* Adjust as needed */
+}
+
+.form-container label,
+.form-container form {
+    text-align: center;
+}
+
+.new-announcement-specific .form-heading {
+    text-align: center;
+    color: #333;
+    margin-bottom: 1.5rem;
+}
+
+.new-announcement-specific .form-control {
+    display: block;
+    width: 100%;
+    padding: 0.375rem 0.75rem;
+    font-size: 1rem;
+    line-height: 1.5;
+    color: #495057;
+    background-color: #fff;
+    background-clip: padding-box;
+    border: 1px solid #ced4da;
+    border-radius: 0.25rem;
+    transition: border-color 0.15s ease-in-out, box-shadow 0.15s ease-in-out;
+}
+
+.new-announcement-specific .form-control:focus {
+    color: #495057;
+    background-color: #fff;
+    border-color: #80bdff;
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 123, 255, 0.25);
+}
+
+.new-announcement-specific .btn-primary {
+    color: #fff;
+    background-color: #007bff;
+    border-color: #007bff;
+    padding: 10px 20px;
+    border-radius: 4px;
+    cursor: pointer;
+}
+
+.new-announcement-specific .btn-primary:hover {
+    background-color: #0069d9;
+    border-color: #0062cc;
+}
+
+.btn a {  /* Ensures text inside buttons is visible */
+    color: white;
+    text-decoration: none;  /* Removes underline */
+}
+
+.btn a:hover, .btn a:focus {
+    color: white;
+    text-decoration: none;  /* Keeps text appearance consistent on hover/focus */
+}

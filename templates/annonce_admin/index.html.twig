@@ -1,0 +1,47 @@
+{% extends 'admin.base.html.twig' %}
+
+{% block title %}Hello AnnonceAdminController!{% endblock %}
+
+
+{% block body %}
+ <div class="row">
+    <div id="recent-transactions" class="col-12">
+        <h2 class="my-2">Nouvelles Annonces</h2>
+        <div class="card-content">
+                <div class="table-responsive">
+                    <table id="recent-orders" class="table table-hover table-xl mb-0">
+                        <thead>
+                            <tr>
+                                <th class="border-top-0">Annonce ID</th>
+                                <th class="border-top-0">Username</th>
+                                <th class="border-top-0">Montant</th>
+                                <th class="border-top-0">Prix</th>
+                                <th class="border-top-0">Datetime</th>
+                                <th class="border-top-0">Status</th>
+                            </tr>
+                        </thead>    
+                        <tbody>
+                            {% for annonce in annonces %}
+                            <tr>
+                                <td class="text-truncate">{{ annonce.id }}</td>
+                                <td class="text-truncate">{{ annonce.username }}</td>
+                                <td class="text-truncate">{{ annonce.montant }}</td>
+                                <td class="text-truncate">{{ annonce.prix }}</td>
+                                <td class="text-truncate">{{ annonce.datetime ? annonce.datetime|date('Y-m-d H:i:s') : ''}}</td>
+                                <td class="text-truncate">{{ annonce.status }}</td>
+                                 <td>
+                                    <button type="button" class="btn btn-outline-primary"><a href="{{ path('app_annonce_show', {'id': annonce.id}) }}">Approve</a></button>
+                                    <button type="button" class="btn btn-outline-secondary" data-toggle="modal" data-target="#exampleModal">Edit</button>
+                                    <button type="button" class="btn btn-outline-danger" onclick="deleteAnnounce({{ annonce.id }})">Delete</button>
+                                </td>
+                            </tr>
+                            {% endfor %}
+                        </tbody>
+                    </table>
+
+                </div>
+            </div>
+    </div>
+</div>
+{% endblock %}
+

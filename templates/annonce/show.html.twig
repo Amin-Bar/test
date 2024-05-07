@@ -1,46 +1,40 @@
-{% extends 'AnnonceBase.html.twig' %}
+{% extends 'base.html.twig' %}
 
 {% block title %}Annonce{% endblock %}
 
-{% block body %}
-    <h1>Annonce</h1>
-
+{% block NewAnnonce %}
+<div style="margin: 100px 20px; border: 1px solid black; border-radius: 20px">
+    <h2>Annonce Details</h2>
     <table class="table">
+        <thead>
+            <tr>
+                <th>User Name</th>
+                <th>Amount</th>
+                <th>Price</th>
+                <th>Date</th>
+            </tr>
+        </thead>
         <tbody>
             <tr>
-                <th>Id</th>
-                <td>{{ annonce.id }}</td>
-            </tr>
-            <tr>
-                <th>User</th>
-                <td>{{ annonce.user }}</td>
-            </tr>
-            <tr>
-                <th>Montant</th>
-                <td>{{ annonce.montant }}</td>
-            </tr>
-            <tr>
-                <th>Prix</th>
-                <td>{{ annonce.prix }}</td>
-            </tr>
-            <tr>
-                <th>Datetime</th>
-                <td>{{ annonce.datetime ? annonce.datetime|date('Y-m-d H:i:s') : '' }}</td>
-            </tr>
-            <tr>
-                <th>Username</th>
                 <td>{{ annonce.username }}</td>
-            </tr>
-            <tr>
-                <th>Status</th>
-                <td>{{ annonce.status }}</td>
+                <td>{{ annonce.montant }}</td>
+                <td>{{ annonce.prix }}</td>
+                <td>{{ annonce.datetime|date('Y-m-d H:i') }}</td>
             </tr>
         </tbody>
     </table>
+   <button type="button" class="btn btn-primary"><a href="{{ path('app_annonce_index') }}">Back to list</a></button>
+    <button type="button" class="btn btn-primary"><a href="{{ path('app_annonce_edit', {'id': annonce.id}) }}">Edit</a></button>
+    {{ include('annonce/_delete_form.html.twig', { id: annonce.id }) }}
+</div>
 
-    <a href="{{ path('app_annonce_index') }}">back to list</a>
 
-    <a href="{{ path('app_annonce_edit', {'id': annonce.id}) }}">edit</a>
+    {% endblock %}
+        
+{% block footer %}
+  
+{% endblock %}
 
-    {{ include('annonce/_delete_form.html.twig') }}
+{% block section %}
+  
 {% endblock %}

@@ -17,8 +17,7 @@ class Annonce
 
     private ?int $id = null;
 
-    #[ORM\Column]
-    private ?int $user = null;
+    
 
     #[ORM\Column(nullable: true)]
     private ?float $montant = null;
@@ -36,22 +35,17 @@ class Annonce
     #[ORM\Column(length: 255)]
     private ?string $status = null;
 
+    #[ORM\Column(length: 255)]
+    private ?string $paymentMethod;
+
+
     public function getId(): ?int
     {
         return $this->id;
     }
 
-    public function getUser(): ?int
-    {
-        return $this->user;
-    }
-
-    public function setUser(int $user): static
-    {
-        $this->user= $user;
-
-        return $this;
-    }
+   
+    
 
     public function getMontant(): ?float
     {
@@ -113,5 +107,15 @@ class Annonce
         $this->status = $status;
 
         return $this;  
+    }
+    public function getPaymentMethod(): ?string
+    {
+        return $this->paymentMethod;
+    }
+
+    public function setPaymentMethod(?string $paymentMethod): self
+    {
+        $this->paymentMethod = $paymentMethod;
+        return $this;
     }
 }
